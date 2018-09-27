@@ -1,0 +1,17 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Meters</title>
+</head>
+
+<body>
+  <h1>All Meters</h1>
+  <ul>
+    {%for meter in meters%}
+      <li><a href="/meters/{{meter.id}}">{{meter.label}} </a></li>
+    {%endfor%}
+  </ul>
+</body>
+
+</html>
