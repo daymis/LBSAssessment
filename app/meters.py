@@ -40,18 +40,18 @@ class MeterData(db.Model):
 
 
 @app.route('/')
-def home():
+def render_homepage():
     return render_template('index.html')
 
 
 @app.route('/meters')
-def metersList():
+def render_meters_list():
     meters = Meter.query.all()
     return render_template('meters_list.html', meters=meters)
 
 
 @app.route('/meters/<int:meter_id>', methods=['GET'])
-def meterData(meter_id):
+def render_meter_data(meter_id):
     query_results = MeterData.query.filter_by(
         meter_id=meter_id).order_by(MeterData.timestamp.desc()).all()
     result_list = [i.serialize() for i in query_results]
